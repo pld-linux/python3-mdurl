@@ -5,23 +5,25 @@
 Summary:	Markdown URL utilities
 Summary(pl.UTF-8):	Narzędzia do URL-i w formacie Markdown
 Name:		python3-mdurl
-Version:	0.1.0
-Release:	4
+Version:	0.1.2
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/mdurl/
 Source0:	https://files.pythonhosted.org/packages/source/m/mdurl/mdurl-%{version}.tar.gz
-# Source0-md5:	148af8104f656a6fd70877505bc3fa2c
+# Source0-md5:	f18eca6522b438354be2378f216a5a94
 URL:		https://pypi.org/project/mdurl/
-BuildRequires:	python3-modules >= 1:3.6
-BuildRequires:	python3-setuptools
+BuildRequires:	python3-modules >= 1:3.7
+BuildRequires:	python3-setuptools >= 1:61
+# TODO:
+#BuildRequires:	python3-flit_core >= 3.2.0
 %if %{with tests}
 BuildRequires:	python3-pytest
 BuildRequires:	python3-pytest-randomly
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python3-modules >= 1:3.6
+Requires:	python3-modules >= 1:3.7
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,40 +40,6 @@ Narzędzia do URL-i dla parsera markdown-it.
 cat >setup.py <<EOF
 from setuptools import setup
 setup()
-EOF
-
-# (extracted from pyproject.toml - keep in sync!)
-cat >setup.cfg <<'EOF'
-[metadata]
-name = mdurl
-version = %{version}
-description = Markdown URL utilities
-author = Taneli Hukkinen
-author_email = hukkin@users.noreply.github.com
-license = MIT
-license_file = LICENSE
-classifiers =
-    License :: OSI Approved :: MIT License
-    Operating System :: MacOS
-    Operating System :: Microsoft :: Windows
-    Operating System :: POSIX :: Linux
-    Programming Language :: Python :: 3 :: Only
-    Programming Language :: Python :: 3.6
-    Programming Language :: Python :: 3.7
-    Programming Language :: Python :: 3.8
-    Programming Language :: Python :: 3.9
-    Programming Language :: Python :: 3.10
-    Programming Language :: Python :: Implementation :: CPython
-    Programming Language :: Python :: Implementation :: PyPy
-    Topic :: Software Development :: Libraries :: Python Modules
-    Typing :: Typed
-[options]
-packages = find:
-package_dir =
-    =src
-python_requires = >=3.6
-[options.packages.find]
-where=src
 EOF
 
 %build
