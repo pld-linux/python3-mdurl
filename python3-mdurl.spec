@@ -6,7 +6,7 @@ Summary:	Markdown URL utilities
 Summary(pl.UTF-8):	Narzędzia do URL-i w formacie Markdown
 Name:		python3-mdurl
 Version:	0.1.2
-Release:	2
+Release:	3
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/mdurl/
